@@ -1,0 +1,36 @@
+Phase 2a – SA Pro tutor with calculator tool (Strands)
+
+Main Python file for this phase:
+phases/phase-2-tools-gateway/sa_pro_tutor_tools_2a.py
+
+Purpose of this phase:
+Extend the basic Phase 1 SA Pro tutor with a calculator tool for precise numeric reasoning.
+
+Keep the same request/response contract as Phase 1:
+Input: {"prompt": "<user question>"}
+Output: {"result": "<answer as plain text>"}
+
+What’s new vs Phase 1:
+
+Uses strands_tools.calculator so the agent can reliably handle cost/throughput math (e.g., data transfer, storage, RPS calculations).
+
+System prompt instructs the tutor to:
+
+Use the calculator for numeric questions.
+
+Show step-by-step reasoning.
+
+Explain implications in SA Pro exam terms (trade-offs, patterns, best practices).
+
+How to run this phase:
+-----------------------
+Ensure AWS_PROFILE and AWS_REGION (us-east-1) are set in the shell.
+
+From the phase-2 folder:
+
+1. agentcore configure -n sa_pro_tutor_2a -e sa_pro_tutor_tools_2a.py
+
+2. agentcore launch
+
+3. agentcore invoke '{ "prompt": "Estimate monthly data transfer cost for 3 TB per month between two Regions and explain the trade-offs." }'
+
