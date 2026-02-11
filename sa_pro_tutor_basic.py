@@ -1,3 +1,5 @@
+"""Phase 1 – SA Pro tutor on AgentCore Runtime, no tools, single Bedrock model."""
+
 from typing import Any, Dict, Optional
 
 from bedrock_agentcore.runtime import BedrockAgentCoreApp

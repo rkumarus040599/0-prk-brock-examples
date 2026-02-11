@@ -1,0 +1,15 @@
+Phase 1 – Basic SA Pro tutor (Amazon Bedrock AgentCore + Strands)
+
+Canonical file:
+
+sa_pro_tutor_basic.py (kept in the repo root, not in this folder).
+
+Purpose of this phase:
+
+Prove a minimal SA Pro exam tutor agent running on AgentCore Runtime using a single Bedrock model and no tools.
+
+Establish a stable request/response contract: payload includes a "prompt" field, response returns {"result": "<text>"}.
+
+How to run:
+
+Follow the main README instructions for Phase 1 (configure, launch, and invoke using sa_pro_tutor_basic.py).
