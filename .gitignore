@@ -1,0 +1,10 @@
+```gitignore
+# Python venv
+.venv/
+
+# AgentCore local config
+.bedrock_agentcore.yaml
+
+# Python cache
+__pycache__/
+*.pyc
