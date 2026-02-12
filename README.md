@@ -60,6 +60,33 @@ More notes and any variants: phases/phase-1-basic/
 Phase 2 – Tools + Gateway (planned)
 Main and helper files will live under: phases/phase-2-tools-gateway/
 
+
+### Phase 2b – SA Pro tutor with calculator + Gateway cost tool
+
+- Extends Phase 2a by adding an external cost estimation tool exposed via
+  an Amazon Bedrock AgentCore Gateway.
+- The core agent (Strands + calculator) still answers general SA Pro questions.
+- When the prompt explicitly mentions `estimateCost` or `gateway cost tool`,
+  the runtime calls a Gateway-backed Lambda MCP tool
+  (`br-gw-lambda-target___estimateCost`) to estimate the monthly cost of the
+  serverless SA Pro tutor pattern and returns a concise summary.
+
+To deploy:
+
+1. Ensure the Gateway and Lambda tool are configured and synchronized
+   (tool name appears in `tools/list` as `br-gw-lambda-target___estimateCost`). [web:900][web:902]
+2. Set environment variables in your shell for local testing:
+   - `GATEWAY_MCP_URL`
+   - `MCP_GATEWAY_BEARER_TOKEN`
+3. From `phases/phase_2_tools_gateway/`, generate and run the launch command:
+
+   ```bash
+   python print_launch_cmd.py
+   # then copy-paste the printed `agentcore launch ...` command
+
+
+
+
 Phase 3 – Memory / knowledge base (planned)
 Files will live under: phases/phase-3-memory/
 

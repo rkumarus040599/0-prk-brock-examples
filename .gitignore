@@ -8,3 +8,6 @@
 # Python cache
 __pycache__/
 *.pyc
+
+# Cognito secrets
+phase_2_tools_gateway/.env

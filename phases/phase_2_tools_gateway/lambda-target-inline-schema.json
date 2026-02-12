@@ -1,0 +1,82 @@
+{
+    "name": "estimateCost",
+    "description": "Estimate monthly cost for the SA Pro tutor serverless pattern (API Gateway + Lambda) based on simple usage assumptions.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "dailyRequests": {
+          "type": "integer",
+          "description": "Average number of requests per day hitting the SA Pro tutor endpoint.",
+          "minimum": 0
+        },
+        "region": {
+          "type": "string",
+          "description": "AWS Region for the workload, e.g., us-east-1.",
+          "default": "us-east-1"
+        },
+        "lambdaMemoryMb": {
+          "type": "integer",
+          "description": "Configured memory size for the Lambda function in MB.",
+          "minimum": 128,
+          "default": 512
+        },
+        "lambdaDurationMs": {
+          "type": "integer",
+          "description": "Average Lambda invocation duration in milliseconds.",
+          "minimum": 1,
+          "default": 200
+        }
+      },
+      "required": [
+        "dailyRequests",
+        "region"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "monthlyCostEstimateUSD": {
+          "type": "number",
+          "description": "Approximate total monthly cost in USD for the serverless pattern."
+        },
+        "breakdown": {
+          "type": "object",
+          "description": "Cost breakdown by component.",
+          "properties": {
+            "lambdaRequests": {
+              "type": "number",
+              "description": "Approximate monthly cost for Lambda requests (USD)."
+            },
+            "lambdaDuration": {
+              "type": "number",
+              "description": "Approximate monthly cost for Lambda GB-seconds (USD)."
+            },
+            "apiGateway": {
+              "type": "number",
+              "description": "Approximate monthly cost for API Gateway requests (USD)."
+            }
+          },
+          "additionalProperties": false
+        },
+        "assumptions": {
+          "type": "object",
+          "description": "Assumptions and derived values used in the estimate.",
+          "additionalProperties": true
+        },
+        "notes": {
+          "type": "array",
+          "description": "Human-readable notes and guidance about the estimate.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "monthlyCostEstimateUSD",
+        "breakdown"
+      ],
+      "additionalProperties": false
+    }
+  }
+  

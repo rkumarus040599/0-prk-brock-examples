@@ -6,9 +6,9 @@ ENV UV_SYSTEM_PYTHON=1 UV_COMPILE_BYTECODE=1
 
 
 
-COPY requirements.txt requirements.txt
+COPY phase_2_tools_gateway/requirements.txt phase_2_tools_gateway/requirements.txt
 # Install from requirements file
-RUN uv pip install -r requirements.txt
+RUN uv pip install -r phase_2_tools_gateway/requirements.txt
 
 
 
@@ -37,4 +37,4 @@ COPY . .
 
 # Use the full module path
 
-CMD ["opentelemetry-instrument", "python", "-m", "sa_pro_tutor_tools_2a"]
+CMD ["opentelemetry-instrument", "python", "-m", "phase_2_tools_gateway.sa_pro_tutor_tools_2b"]
