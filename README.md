@@ -60,7 +60,6 @@ More notes and any variants: phases/phase-1-basic/
 Phase 2 – Tools + Gateway (planned)
 Main and helper files will live under: phases/phase-2-tools-gateway/
 
-
 ### Phase 2b – SA Pro tutor with calculator + Gateway cost tool
 
 - Extends Phase 2a by adding an external cost estimation tool exposed via
@@ -85,11 +84,22 @@ To deploy:
    # then copy-paste the printed `agentcore launch ...` command
 
 
-
-
 Phase 3 – Memory / knowledge base (planned)
 Files will live under: phases/phase-3-memory/
 
 Phase 4 – Evaluation & observability (planned)
 Files will live under: phases/phase-4-eval-observability/
 
+======
+Phase 2a – Calculator tool only
+SA Pro tutor backed by Amazon Bedrock (`us.amazon.nova-2-lite-v1:0`) with a local calculator tool. No Gateway, no external tools.
+
+Phase 2b – Gateway + Lambda (no MCP in agent)  
+Gateway is configured to expose a Lambda-based cost estimation tool, but the agent does not yet call it via MCP. Used to validate Gateway→Lambda wiring in isolation.
+
+Phase 2b-mcp-v3 – Gateway + Lambda via MCP (env-based bearer token)
+Agent uses both the calculator tool and an MCP client to call the Gateway, which invokes the Lambda cost tool and returns a structured cost breakdown.
+Authentication to the Gateway uses an environment-provided bearer token (`MCP_GATEWAY_BEARER_TOKEN`) obtained via a separate Cognito client-credentials helper script. Token retrieval is out-of-band, not yet automated by AgentCore Identity.
+> Status: End-to-end path (agent → MCP → Gateway → Lambda cost tool) is working with an env-based bearer token. Identity-based outbound auth is planned for a later phase.
+
+=========

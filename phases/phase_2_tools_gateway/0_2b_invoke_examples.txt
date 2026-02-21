@@ -1,0 +1,24 @@
+#sample examples for phase-2b code.
+
+agentcore invoke --agent sa_pro_tutor_tools_2b \
+  '{"prompt": "You have a global e-commerce web application with users in the US and Europe. Design a highly available, cost-optimized architecture on AWS that minimizes latency and supports peak traffic of 50k requests per minute."}'
+
+agentcore invoke --agent sa_pro_tutor_tools_2b \
+  '{"prompt": "I need to design an ingestion pipeline for 10 TB of data per month into Amazon S3 with downstream processing in AWS Glue. Help me estimate the required throughput and job concurrency, showing your calculations."}'
+
+
+agentcore invoke --agent sa_pro_tutor_tools_2b \
+  '{"prompt": "Use your gateway cost tool (estimateCost) to estimate the monthly cost for the SA Pro tutor serverless pattern under your default Phase 2b assumptions."}'
+
+
+agentcore invoke --agent sa_pro_tutor_tools_2b \
+  '{"prompt": "For this exam scenario, please invoke your gateway cost tool (estimateCost) and explain the monthly cost for running the SA Pro tutor with 10,000 daily requests in us-east-1."}'
+
+
+agentcore invoke --agent sa_pro_tutor_tools_2b \
+  '{"prompt": "Design a serverless architecture for an SA Pro practice API using API Gateway, Lambda, and DynamoDB in us-east-1, then use your gateway cost tool (estimateCost) to provide an approximate monthly cost under your default assumptions."}'
+
+2b_mcp examples:
+agentcore invoke \
+  --agent sa_pro_tutor_tools_2b_mcp \
+  '{"prompt": "Use your gateway cost tool to estimate monthly cost for this Phase 2b_mcp scenario."}'
