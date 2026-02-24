@@ -37,4 +37,4 @@ COPY . .
 
 # Use the full module path
 
-CMD ["opentelemetry-instrument", "python", "-m", "sa_pro_tutor_tools_2b_mcp_v3"]
+CMD ["opentelemetry-instrument", "python", "-m", "sa_pro_tutor_tools_2b_mcp_v4"]
